@@ -11,5 +11,6 @@ public class TestClass {
         Faker fakerUA = Faker.instance(new Locale("uk-UA"));
         System.out.println(fakerEN.name().firstName());
         System.out.println(fakerUA.name().firstName());
+        System.out.println(Faker.instance().bothify("????????@gmail.com"));
     }
 }
