@@ -2,9 +2,14 @@ package example;
 
 import com.github.javafaker.Faker;
 
+import java.util.Locale;
+
 public class TestClass {
 
     public static void main(String[] args) {
-        System.out.println(Faker.instance().name().name());
+        Faker fakerEN = Faker.instance(new Locale("en-US"));
+        Faker fakerUA = Faker.instance(new Locale("uk-UA"));
+        System.out.println(fakerEN.name().firstName());
+        System.out.println(fakerUA.name().firstName());
     }
 }
