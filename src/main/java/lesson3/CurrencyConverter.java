@@ -20,6 +20,6 @@ public class CurrencyConverter {
     public double calculateTotalAmount(double amountUsd) {
         double amountUah = convertUsdToUah(amountUsd);
         double commissionAmount = calculateCommission(amountUah);
-        return amountUah + commissionAmount;
+        return amountUah - commissionAmount;
     }
 }
