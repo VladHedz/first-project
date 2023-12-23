@@ -1,5 +1,4 @@
-package lesson5;
-
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Fraction {
@@ -38,7 +37,12 @@ public class Fraction {
 
         Fraction other = (Fraction) obj;
 
-        return this.numerator == other.numerator && this.denominator == other.denominator;
+        return this.numerator * other.denominator == this.denominator * other.numerator;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(numerator, denominator);
     }
 
     public static void main(String[] args) {
