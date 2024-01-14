@@ -2,7 +2,7 @@ package lesson7;
 
 import java.util.List;
 
-public class GenericObject<T> {
+public class SearchResponse<T> {
     private List<T> data;
     private Pagination pagination;
 
