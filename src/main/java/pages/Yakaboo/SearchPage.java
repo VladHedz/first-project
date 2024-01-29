@@ -7,15 +7,14 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class SearchPage {
 
-    private final SelenideElement SEARCH_PAGE = $("[class='product-listing view-category expanded']");
-    private final SelenideElement TITLE_BOOK = $("[class='ui-card-title category-card__name']");
-
+    private final SelenideElement searchPage = $("[class='product-listing view-category expanded']");
+    private final SelenideElement titleBook = $("[class='ui-card-title category-card__name']");
 
     public void checkSearchPageIsLoaded() {
-        SEARCH_PAGE.shouldBe(visible);
+        searchPage.shouldBe(visible);
     }
 
     public void chooseBook() {
-        TITLE_BOOK.shouldBe(visible, enabled).shouldHave(text("Задивляюсь у твої зіниці")).click();
+        titleBook.shouldBe(visible, enabled).shouldHave(text("Задивляюсь у твої зіниці")).click();
     }
 }

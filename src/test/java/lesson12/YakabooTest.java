@@ -23,7 +23,7 @@ public class YakabooTest {
 
     @Test(priority = 1)
     public void openWelcomePage() {
-        welcomePage.checkWelcomePageIsLoaded();
+        welcomePage.openWelcomePage();
     }
 
     @Test(priority = 2)
