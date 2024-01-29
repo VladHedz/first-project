@@ -6,21 +6,14 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 
 public class BookPage {
-    private static final SelenideElement BOOK_IMAGE = $("[class='slide__item']");
-    private static final SelenideElement PRESELECT_TYPE = $("[class='ui-btn-format option-button selected']");
-    private static final SelenideElement FORMAT_TEXT_ELEMENT = PRESELECT_TYPE.$(".format__text");
-    private static final SelenideElement PRICE_DISPLAY = PRESELECT_TYPE.$(".ui-price-display__main");
-    private static final SelenideElement NOT_AVAILABLE_BUTTON = $("[class='ui-btn-accept waiting-list button-accept']");
-
-    private boolean isBookAvailable;
+    private final SelenideElement BOOK_IMAGE = $("[class='slide__item']");
+    private final SelenideElement PRESELECT_TYPE = $("[class='ui-btn-format option-button selected']");
+    private final SelenideElement FORMAT_TEXT_ELEMENT = PRESELECT_TYPE.$(".format__text");
+    private final SelenideElement PRICE_DISPLAY = PRESELECT_TYPE.$(".ui-price-display__main");
+    private final SelenideElement NOT_AVAILABLE_BUTTON = $("[class='ui-btn-accept waiting-list button-accept']");
 
     public void checkBookPageIsLoaded() {
         BOOK_IMAGE.shouldBe(visible);
-    }
-
-    public void checkBookAvailability() {
-        isBookAvailable = !NOT_AVAILABLE_BUTTON.exists();
-        System.out.println(isBookAvailable ? "Книга доступна для покупки." : "Книга не доступна для покупки.");
     }
 
     public void checkBookPrice() {
@@ -35,8 +28,9 @@ public class BookPage {
         }
     }
 
-    public boolean isBookAvailable() {
+    public boolean checkBookAvailability() {
+        boolean isBookAvailable = !NOT_AVAILABLE_BUTTON.exists();
+        System.out.println(isBookAvailable ? "Книга доступна для покупки." : "Книга не доступна для покупки.");
         return isBookAvailable;
-
     }
 }

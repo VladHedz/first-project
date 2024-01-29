@@ -7,8 +7,8 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class SearchPage {
 
-    private static final SelenideElement SEARCH_PAGE = $("[class='product-listing view-category expanded']");
-    private static final SelenideElement TITLE_BOOK = $("[class='ui-card-title category-card__name']");
+    private final SelenideElement SEARCH_PAGE = $("[class='product-listing view-category expanded']");
+    private final SelenideElement TITLE_BOOK = $("[class='ui-card-title category-card__name']");
 
 
     public void checkSearchPageIsLoaded() {
