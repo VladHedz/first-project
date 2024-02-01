@@ -15,12 +15,11 @@ import static pages.Imdb.Film.*;
 
 public class ImdbWebTest {
     private static final String Imdb = config.PageUrl.Imdb.PageUrl.IMDB_URL.url;
-    private TopChart topChart;
+    private TopChart topChart = new TopChart();
 
     @BeforeTest
     public void setUpBrowser() {
         Browser.setBrowser();
-        topChart = new TopChart();
     }
 
     @Test(dataProvider = "filmTitlesProvider")

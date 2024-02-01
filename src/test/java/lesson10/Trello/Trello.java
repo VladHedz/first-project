@@ -9,8 +9,8 @@ import config.driver.Browser;
 
 
 public class Trello {
-    private static final String LOGIN_PAGE_TRELLO = config.PageUrl.Trello.PageUrl.LOGIN_PAGE_TRELLO.url;
-    private TrelloPage trelloPage;
+    private static final String LOGIN_PAGE_TRELLO = config.pageUrl.Trello.PageUrl.LOGIN_PAGE_TRELLO.url;
+    private TrelloPage trelloPage = new TrelloPage();
 
     @BeforeTest
     public void setUpBrowser() {
