@@ -1,6 +1,7 @@
 package pages.Yakaboo;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
@@ -12,10 +13,12 @@ public class BookPage {
     private final SelenideElement priceDisplay = preselectType.$(".ui-price-display__main");
     private final SelenideElement notAvailableButton = $("[class='ui-btn-accept waiting-list button-accept']");
 
+    @Step("Check book page is loaded")
     public void checkBookPageIsLoaded() {
         bookImage.shouldBe(visible);
     }
 
+    @Step("Get book price")
     public void checkBookPrice() {
         String formatText = formatTextElement.getText();
 
@@ -28,6 +31,7 @@ public class BookPage {
         }
     }
 
+    @Step("Check availability book")
     public boolean checkBookAvailability() {
         boolean isBookAvailable = !notAvailableButton.exists();
         System.out.println(isBookAvailable ? "Книга доступна для покупки." : "Книга не доступна для покупки.");
