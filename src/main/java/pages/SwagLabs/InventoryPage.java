@@ -19,14 +19,17 @@ public class InventoryPage {
         INVENTORY_ITEMS.forEach(item -> item.$(INVENTORY_ITEM_PRICE_LOCATOR).shouldBe(visible));
     }
 
-    public void clickAddToCartForMatchingPrices() {
-        for (int i = 0; i < INVENTORY_ITEMS.size(); i++) {
-            String itemPriceText = INVENTORY_ITEMS.get(i).$(INVENTORY_ITEM_PRICE_LOCATOR).getText();
-            if (itemPriceText.equals("$7.99") || itemPriceText.equals("$9.99")) {
-                INVENTORY_ITEMS.get(i).$(ADD_TO_CART_BUTTON_LOCATOR).click();
+    public void clickAddToCartForMatchingPrices(String[] prices) {
+        for (String price : prices) {
+            for (int i = 0; i < INVENTORY_ITEMS.size(); i++) {
+                String itemPriceText = INVENTORY_ITEMS.get(i).$(INVENTORY_ITEM_PRICE_LOCATOR).getText();
+                if (itemPriceText.equals(price)) {
+                    INVENTORY_ITEMS.get(i).$(ADD_TO_CART_BUTTON_LOCATOR).click();
+                }
             }
         }
     }
+
 
     public void clickOnCartBadge() {
         CART_BADGE.shouldBe(visible).click();

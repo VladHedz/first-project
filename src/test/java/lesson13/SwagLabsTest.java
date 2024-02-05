@@ -9,7 +9,7 @@ import pages.SwagLabs.*;
 public class SwagLabsTest {
     private LoginPage loginPage = new LoginPage();
     private InventoryPage inventoryPage = new InventoryPage();
-    private CartPage cartPage = new CartPage();
+    private CartPage cartPage;
     private CheckoutStepOne checkoutStepOne = new CheckoutStepOne();
     private CheckoutStepTwo checkoutStepTwo = new CheckoutStepTwo();
     private CheckoutCompletePage checkoutCompletePage = new CheckoutCompletePage();
@@ -34,12 +34,17 @@ public class SwagLabsTest {
 
     @Test(priority = 3)
     public void addInventoryToCart() {
-        inventoryPage.clickAddToCartForMatchingPrices();
+        String[] pricesToAdd = {"$7.99", "$9.99"};
+        inventoryPage.clickAddToCartForMatchingPrices(pricesToAdd);
         inventoryPage.clickOnCartBadge();
     }
 
+
     @Test(priority = 4)
     public void checkAddedInventoryToCart() {
+        String[] itemPrices = {"$7.99", "$9.99"};
+        cartPage = new CartPage(itemPrices);
+
         cartPage.checkCartItems();
         cartPage.clickCheckoutButton();
     }
