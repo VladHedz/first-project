@@ -3,6 +3,7 @@ package pages.Trello;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
@@ -43,110 +44,137 @@ public class TrelloPage {
         HEADER.shouldBe(visible);
     }
 
+    @Step("Set email")
     public void setEmail() {
-        USERNAME_INPUT.shouldBe(visible).setValue("usernave");
+        USERNAME_INPUT.shouldBe(visible).setValue("username");
     }
 
+    @Step("Set password")
     public void setPassword() {
         PASSWORD_INPUT.shouldBe(visible).setValue("password");
     }
 
+    @Step("Click login button")
     public void clickLoginButton() {
         LOGIN_BUTTON.shouldBe(visible).click();
     }
 
+    @Step("Switch board")
     public void switchToTrelloBoard() {
         TRELLO_BOARD.shouldBe(visible).click();
     }
 
+    @Step("Check board switched")
     public void switchToMyBoard() {
         MY_BOARD.shouldBe(visible).click();
     }
 
+    @Step("Check draft board is display")
     public void checkBoardIsDisplay() {
         ADD_NEW_LIST_BUTTON.shouldBe(visible);
     }
 
+    @Step("Click add new list")
     public void clickAddNewList() {
         ADD_NEW_LIST_BUTTON.shouldBe(visible).click();
     }
 
+    @Step("Set list name")
     public void setListName() {
         NAME_NEW_LIST_INPUT.shouldBe(visible).setValue("New List");
     }
 
+    @Step("Create new list")
     public void createNewList() {
         CREATE_NEW_LIST_BUTTON.shouldBe(visible).click();
     }
 
+    @Step("Check list created")
     public void checkListCreated() {
         LIST_TITLE.shouldBe(text("New List"));
     }
 
+    @Step("Click add new card")
     public void clickAddNewCard() {
         ADD_NEW_CARD_BUTTON.shouldBe(visible).click();
     }
 
+    @Step("Set card name")
     public void setCardName() {
         NAME_NEW_CARD_INPUT.shouldBe(visible).setValue("New Card");
     }
 
+    @Step("Create new card")
     public void createNewCard() {
         CREATE_NEW_CARD_BUTTON.shouldBe(visible).click();
     }
 
+    @Step("Check card created")
     public void checkCardCreated() {
         CARD_NAME.shouldBe(text("New Card"));
     }
 
+    @Step("Cleck on card")
     public void clickOnCard() {
         CARD_NAME.shouldBe(visible).click();
     }
 
+    @Step("Check card is visible")
     public void checkCardIsOpen() {
         DESCRIPTION_INPUT.shouldBe(visible).setValue("TEST DESCRIPTION");
     }
 
+    @Step("Set description card")
     public void setDescription() {
         DESCRIPTION_INPUT.shouldBe(visible).setValue("TEST DESCRIPTION");
     }
 
+    @Step("Save new description")
     public void clickSaveDescriptionButton() {
         SAVE_DESCRIPTION_BUTTON.shouldBe(visible).click();
     }
 
+    @Step("Click on comment input")
     public void clickPreviewComment() {
         PREVIEW_COMMENT_INPUT.shouldBe(visible).click();
     }
 
+    @Step("Set new comment")
     public void setComment() {
         COMMENT_INPUT.last().lastChild().setValue("TEST COMMENT");
     }
 
+    @Step("Save new comment")
     public void clickSaveCommentButton() {
         SAVE_COMMENT_BUTTON.shouldBe(visible).click();
     }
 
+    @Step("Click archive card button")
     public void clickArchiveCardButton() {
         ARCHIVE_CARD_BUTTON.shouldBe(visible).click();
     }
 
+    @Step("Click delete card button")
     public void clickDeleteCardButton() {
         DELETE_CARD_BUTTON.shouldBe(visible).click();
     }
 
+    @Step("Confirm delete card")
     public void clickConfirmDeleteCardButton() {
         CONFIRM_DELETE_CARD_BUTTON.shouldBe(visible).click();
     }
 
+    @Step("Click edit list button")
     public void clickEditListButton() {
         EDIT_LIST_BUTTON.shouldBe(visible).click();
     }
 
+    @Step("Click archive list button")
     public void clickArchiveListButton() {
         ARCHIVE_LIST_BUTTON.shouldBe(visible).click();
     }
 
+    @Step("Check list deleted")
     public void checkListDeleted() {
         CREATED_LIST.shouldBe(hidden);
     }
